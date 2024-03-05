@@ -1,0 +1,151 @@
+@import url("../styles/navbar.css");
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1d202d #0a0b14;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 0.5vw;
+  border-radius: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #1d202d #0a0b14;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1d202d;
+  border-radius: 10px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Tactic;
+  src: url(../assets/fonts/logo/Miller-Type-Foundry-Tactic-Round-Ult.ttf);
+}
+@font-face {
+  font-family: Gilroy;
+  src: url(../assets/fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: GilroyBlack;
+  src: url(../assets/fonts/Gilroy-Black.ttf);
+}
+@font-face {
+  font-family: GilroyBold;
+  src: url(../assets/fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: GilroyRegular;
+  src: url(../assets/fonts/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: GilroyThin;
+  src: url(../assets/fonts/Gilroy-Thin.ttf);
+}
+@font-face {
+  font-family: GilroyUltraLight;
+  src: url(../assets/fonts/Gilroy-UltraLight.ttf);
+}
+@layer components {
+  .SidebarBtn {
+    @apply w-full duration-300  p-4 hover:text-base-content text-base-content/50 rounded-lg flex items-center justify-start space-x-2;
+  }
+  .activeSidebar {
+    @apply text-base-100 bg-base-content hover:text-base-100/70;
+  }
+}
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+.customtable {
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+.customtr:first-child td:first-child {
+  border-top-left-radius: 20px;
+}
+.customtr:first-child td:last-child {
+  border-top-right-radius: 20px;
+}
+
+.customtr:last-child td:first-child {
+  border-bottom-left-radius: 20px;
+}
+.customtr:last-child td:last-child {
+  border-bottom-right-radius: 20px;
+}
+
+.customtable:before {
+  line-height: 2em;
+  content: ".";
+  color: #0a0b14;
+  background-color: #0a0b14;
+  display: block;
+}
+.reflect {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.overlay {
+  background: linear-gradient(
+    16.2deg,
+    #0a0b14 26.81%,
+    rgba(10, 11, 20, 0) 83.42%
+  );
+}
+.bordergradiant {
+  border-image: linear-gradient(to left, rgb(218, 218, 218), #0a0b14) 100%;
+  border-image-slice: 1 1 0 0;
+}
+
+body {
+  --color-fg-accent: #c5ff4b;
+  scroll-behavior: smooth;
+}
+
+.dynamic-shadow-dom {
+  /* --dynamic-text-primary: #c5ff4b; */
+  --dynamic-font-family-primary: "Gilroy", sans-serif;
+  --dynamic-font-family-numbers: "Gilroy", monospace, sans-serif;
+  /* --dynamic-connect-button-background: #c5ff4b; */
+  /* --dynamic-connect-button-color: #ffffff; */
+}
+
+.pattern {
+  background-color: #e5e5f7;
+  opacity: 0.6;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #343434 0,
+    #343434 1px,
+    #232323 0,
+    #232323 50%
+  );
+}
+
+.pattern-light {
+  background-color: #e5e5f7;
+
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.8) 0,
+    rgba(255, 255, 255, 0.8) 1px,
+    rgba(255, 255, 255, 0.1) 0,
+    rgba(255, 255, 255, 0.1) 50%
+  );
+}
+
