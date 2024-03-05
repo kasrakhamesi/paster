@@ -11,7 +11,7 @@ const nextConfig = {
 
     return config;
   },
-  //transpilePackages: ["@uniswap/widgets", "@uniswap/conedison"],
+  transpilePackages: ["@uniswap/widgets", "@uniswap/conedison"],
 };
 
 module.exports = nextConfig;
