@@ -30,7 +30,7 @@ export default function RewardBanner({
       <div className="w-0.5 h-10 md:h-14 rounded bg-base-100" />
       <div className="flex-1 flex flex-col items-center justify-center px-2 py-4 space-y-0.5 md:space-y-2">
         <h3 className="hidden md:flex text-xl text-CustomGrayDarker">
-          In value of token
+          Total Claimed Credit
         </h3>
         <h3 className="flex md:hidden text-lg text-CustomGrayDarker">
           In token
