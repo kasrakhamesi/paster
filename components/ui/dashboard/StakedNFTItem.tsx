@@ -136,7 +136,7 @@ const StakedNFTItem = ({ id, setSelectedNFT, selectedNFT, refetch }: Props) => {
           htmlFor={"my-modal-" + id.toString()}
           className={`space-x-2  ${
             enabled
-              ? "btn text-black bg-CustomGreen hover:bg-asterfiDarkGreen"
+              ? "btn text-black bg-CustomGreen hover:bg-asterfiDarkGreen cursor-hand"
               : "flex justify-center w- items-center py-2 text-CustomGreen border-1 border border-CustomGreen rounded-xl"
           }`}
         >

@@ -19,6 +19,8 @@ import {
 import { LoaderIcon, toast } from "react-hot-toast";
 import { globals } from "@/config/globals";
 import Image from "next/image";
+import { claimReward } from "@/api/rewards";
+import { useRouter } from "next/router";
 
 type Props = {
   data:
@@ -34,6 +36,7 @@ type Props = {
 };
 
 const StakingModal = ({ data, isStaked, id, refetch, image }: Props) => {
+  const router = useRouter();
   const metadata: any = data?.nft.metadata;
   const nftImage =
     image || data?.nft.media?.mediaCollection?.low.url || metadata?.image;
@@ -152,9 +155,13 @@ const StakingModal = ({ data, isStaked, id, refetch, image }: Props) => {
     hash: unstakeData?.hash,
     onSuccess: () => {
       toast.success(`Successfully Unstaked Your NFT`);
+      toast.success(
+        `Congratulations! You have successfully claimed your first initial reward of 2,500,000 credits across 4 claimable rewards. Remember to access the ‘Rewards’ section to claim all future claimable credits that become available.  check it out now`
+      );
       setPhase("success");
       queryClient.resetQueries(["NFTs", address]);
       refetch(false);
+      router.push("/dashboard/rewards");
     },
     onError: (error) => {
       console.log("error", error);
@@ -222,7 +229,7 @@ const StakingModal = ({ data, isStaked, id, refetch, image }: Props) => {
                         className=" mask mask-squircle"
                       />
                       <p className="bg-[#54597C] relative -top-4 px-4 py-2 rounded-xl text-sm w-fit items-center justify-center text-white">
-                        Surprize
+                        Surprise
                       </p>
                     </div>
                     <div className="flex flex-col items-center w-1/2 h-full">
@@ -248,7 +255,17 @@ const StakingModal = ({ data, isStaked, id, refetch, image }: Props) => {
             <div>
               <button
                 disabled={loadingUnstake || waitForUnstakeTransaction.isLoading}
-                onClick={() => unstakeNFT?.()}
+                onClick={() => {
+                  claimReward({ tokenId: Number(id) })
+                    .then(() => {
+                      unstakeNFT?.();
+                    })
+                    .catch(({ message }) => {
+                      if (message.includes("claim")) {
+                        unstakeNFT?.();
+                      } else toast.error(message);
+                    });
+                }}
                 className="flex space-x-2 disabled:bg-gray-800 disabled:text-gray-400 btn btn-wide text-CustomBlack hover:bg-asterfiDarkGreen bg-CustomGreen"
               >
                 {loadingUnstake || waitForUnstakeTransaction.isLoading ? (
