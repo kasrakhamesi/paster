@@ -22,7 +22,7 @@ function Uniswap() {
     (window as unknown as CustomWindow).Browser = {
       T: () => {},
     };
-  }, [open]);
+  }, []);
 
   const [provider, setProvider] = useState<Web3Provider | undefined>();
   const { connector } = useAccount();
